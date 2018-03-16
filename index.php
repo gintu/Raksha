@@ -1,5 +1,5 @@
 <?php
-include_once("dbconnect.php");
+include_once("project/dbconnect.php");
 $title="Home";
 include_once("header.php");
 
