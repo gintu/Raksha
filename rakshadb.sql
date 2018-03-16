@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 07:23 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Mar 16, 2018 at 11:13 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -42,7 +42,18 @@ CREATE TABLE `volunteer` (
 --
 
 INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location`, `lat`, `lng`) VALUES
-(9846347501, 'azin.maaakkaaraanttthhhh@gmail.com', 'azzinnMakaranth', '****makaranth', 'am awsomee...', 'Kottayam', 9.5457888665555, 788.114444477778);
+(8281596630, 'abhishek.mvr@outlook.com', 'abhishek c', 'abhishekc', 'he is abhishek', 'kottayam', 9.9344504, 76.5314705),
+(8281768654, 'bineeth@gmail.com', 'bineeth', 'bineethbinu', 'im coool', 'alappuzha', 9.9344504, 76.5314705),
+(8281860141, 'azin.makaranth@gmail.com', 'azin makaranth', 'azinmakaranth', 'myself azin', 'kottayam', 9.9344504, 76.5314705),
+(8848827530, 'beemamuhammed@gmail.com', 'beema muhammed', 'beemamuhammed', 'beembro', 'thodupuzha', 9.9344504, 76.5314705),
+(9496617717, 'adhuuss@gmail.com', 'adharshya p', 'adharshyap', 'adhufreaky', 'malappuram', 9.9344504, 76.5314705),
+(9496866691, 'gintutom@gmail.com', 'gintu tom', 'gintutom', 'gintu here', 'kottayam', 9.9344504, 76.5314705),
+(9497888065, 'anandu97@gmail.com', 'anandu s', 'anandus', 'kozhikoodaaran', 'kozhikode', 9.9344504, 76.5314705),
+(9633194711, 'armp97@gmail.com', 'AHMED REHMAN', 'ahmedrehman', 'im me', 'kottayam', 9.9344504, 76.5314705),
+(9744327876, 'ankithtv@hotmail.com', 'ankith t v', 'ankithtv', 'ankithedifferent', 'kannur', 9.9344504, 76.5314705),
+(9846347501, 'azin.maaakkaaraanttthhhh@gmail.com', 'azzinnMakaranth', '****makaranth', 'am awsomee...', 'Kottayam', 9.5457888665555, 788.114444477778),
+(9874567348, 'sidhin@me.in', 'sidhin s thomas', 'sidhinsthomas', 'haha', 'delhi', 9.9344504, 76.5314705),
+(9874567765, 'hadeeb@outlook.com', 'hadeeb farhan k', 'hadeebfarhan', 'dude', 'malappuram', 9.9344504, 76.5314705);
 
 --
 -- Indexes for dumped tables
