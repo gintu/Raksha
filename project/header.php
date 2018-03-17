@@ -22,18 +22,18 @@
 <?php
 if(isset($_SESSION["mobile"]))
 {
-echo('<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>');
+echo('<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>
+</li>
+<li>
+    <img src="../user.jpg" alt="user" width="50px" height="50px" style="border-radius:50px">
+</li>
+</ul>');
 }
 else
 {
-echo('<a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>');    
+echo('<a class="nav-link" href="vollogin.php">Login<span class="sr-only">(current)</span></a>');    
 }
 ?>
-    </li>
-    <li>
-        <img src="../user.jpg" alt="user" width="50px" height="50px" style="border-radius:50px">
-    </li>
-</ul>
 </div>
 </nav>
 

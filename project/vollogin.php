@@ -22,7 +22,7 @@ if(!isset($_GET['error1'])){
 ?>
 <div class="container">
 
-    <form id="_form" method="post" action="loginAction.php">
+    <form id="_form" method="post" action="volloginAction.php">
         <fieldset>
             <legend>Volunteer Login</legend>
             <br>

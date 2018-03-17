@@ -22,7 +22,7 @@ echo $q;
 $res = mysqli_query($con,$q);
 echo $res;
 if($res)
-  header('location:login.php');
+  header('location:vollogin.php');
 else
   echo "<body style=\"background-color:#c0392b;color:#3498db;\"><center>MisFortune<br><a href =\"index.html\">SafePlace</a></center>";
 }

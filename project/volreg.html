@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Location</label>
-                <input name="location" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Enter location" type="text">
+                <input name="location" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Enter location" type="text" onchange="getlatlng()">
 
             </div>
 
@@ -161,25 +161,9 @@
             }
         });
     };
+    
 </script>
 <script>
-    var lat,lng;
-
-    (function() {
-        getLocation();
-    })();
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
-
-    function showPosition(position) {
-        document.getElementById('lat').value = position.coords.latitude;
-        document.getElementById('lng').value = position.coords.longitude;
-    }
     function submitF(){
         var name = document.getElementById("name").value;
         var email = document.getElementById("exampleInputEmail1").value;
