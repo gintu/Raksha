@@ -1,6 +1,14 @@
 <!doctype html>
 <?php
+$title = "Login";
+include_once("dbconnect.php");
 include_once("header.php");
+
+if(isset($_SESSION['mobile']))
+{
+    header("location:index2.php");
+}
+
 if(!isset($_GET['error1'])){
      $error1 = "";
      $vol = "" ;

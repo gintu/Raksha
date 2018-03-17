@@ -10,7 +10,7 @@ if(isset($_POST['mob'],$_POST['pass'])){
        if($res_num == 1){
             session_start();
             $_SESSION['mobile'] = $m;
-            header('location:volunteerPanel.php');
+            header('location:index2.php');
        }
        else{
            header('location:login.php?error1=&vol=&error2=Invalid Password');
