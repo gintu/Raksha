@@ -39,13 +39,15 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" type="email">
+                <input name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" type="email" onkeyup="checkemail()">
+                <div><span id="err_email" style="color:red;"></span></div>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">mobile Number</label>
-                <input name="mobile" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter phonenumber" type="text">
+                <input name="mobile" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter phonenumber" type="text" onkeyup="checkphone()">
+                <div><span id="err_mob" style="color:red;"></span></div>
                 <small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
             </div>
             <div class="form-group">
@@ -199,7 +201,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+<script>
+    function checkphone(){
+        var xhttp = new XMLHttpRequest();
+        var mob = document.getElementById('phonenumber').value;
+        document.getElementById("err_mob").innerHTML = "";
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("err_mob").innerHTML = this.responseText; 
+        }
+      };
+     xhttp.open("GET", "volregAction.php?mob="+mob, true);
+     xhttp.send();
+    }
+    function checkemail(){
+        var xhttp = new XMLHttpRequest();
+        var mob = document.getElementById('exampleInputEmail1').value;
+        document.getElementById("err_email").innerHTML = "";
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("err_email").innerHTML = this.responseText; 
+        }
+      };
+     xhttp.open("GET", "volregAction.php?email="+mob, true);
+     xhttp.send();
+    }
+    </script>
     
 </body>
 </html>
