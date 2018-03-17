@@ -13,11 +13,11 @@ if(isset($_POST['mob'],$_POST['pass'])){
             header('location:index2.php');
        }
        else{
-           header('location:login.php?error1=&vol=&error2=Invalid Password');
+           header('location:vollogin.php?error1=&vol=&error2=Invalid Password');
        } 
     }
     else
-        header('location:login.php?error1=Invalid User&vol=&error2');
+        header('location:vollogin.php?error1=Invalid User&vol=&error2');
 }
 if(isset($_GET['mob'])){
     $m = $_GET['mob'];
