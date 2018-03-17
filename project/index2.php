@@ -15,13 +15,11 @@ $volunteer = mysqli_fetch_assoc($result);
     <h1 class="display-4" style="text-align: center">Your Feed</h1>
     <br>
         <?php 
-
-$context = stream_context_create($opts);
 $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true/false';
-$output = file_get_contents($url, false, $context); 
-$result = json_decode($output, true);
-$data = $result[0];
-echo  $data["formatted_address"];
+$output = file_get_contents($url); 
+$out = json_decode($output, true);
+//$data = $result[0];
+echo $out["results"][0]["formatted_address"];
         // $query1 = "select * from tasks";
         // $result1 = mysqli_query($query1);
         // if ($result1) {
