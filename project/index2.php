@@ -32,19 +32,13 @@ $query1 = "select * from tasks";
                 $output = file_get_contents($url); 
                 $out = json_decode($output, true);
                 $adr = $out["results"][0]["formatted_address"];
-                $i++;
-                $adr1 = urlencode($adr);
-                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$volunteer['lat'].','.$volunteer['lng'].'&sensor=true/false';
-                $output = file_get_contents($url); 
-                $out = json_decode($output, true);
-                $adr2 = $out["results"][0]["formatted_address"];
                 echo '<div class="card-block">
-                Task #'.$i. 
+                Task #'.$i++. 
                 '</div>
                 
                         <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
                         <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><a href="https://www.google.com/maps/dir/?api=1&origin='.$adr1.'&destination='.$adr2.'&travelmode=bicycling" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Get Directions</a>
+                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><button class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$row['lat'].','.$row['lng'].'\',\'_blank\')">Get Directions</button>
                     </div>
                 </div>
                 <br>
