@@ -4,21 +4,7 @@ $title = "Login";
 include_once("dbconnect.php");
 include_once("header.php");
 
-if(isset($_SESSION['mobile']))
-{
-    header("location:index2.php");
-}
 
-if(!isset($_GET['error1'])){
-     $error1 = "";
-     $vol = "" ;
-     $error2 = "";
- }
- else{
-    $error1 = $_GET['error1'];
-    $vol = $_GET['vol'] ;
-    $error2 = $_GET['error2']; 
- }
 ?>
 <div class="container">
 
@@ -29,12 +15,11 @@ if(!isset($_GET['error1'])){
             <div class="form-group">
                 <label for="userName">User Name</label>
                 <input class="form-control" name ="userName" id="userName" aria-describedby="emailHelp" placeholder="Enter User Name" type="text" >
-                <div><span id="err_mob" style="color:red;"><?php echo $error1; ?></span></div>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input  name = "password" class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
-                <div><span style="color:red;"><?php echo $error2; ?></span></div>
+                <div><span id="err_mob" style="color:red;"><?php if(isset($_GET['message'])) { echo $_GET['message']; }?></span></div>
             </div>
 
 

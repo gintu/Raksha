@@ -12,12 +12,12 @@ if(isset($_POST['userName'],$_POST['password']))
             header('location:admin_dash.php');
        }
        else{
-           header('location:admin_login.php?error1=&vol=&error2=Invalid Password');
+          header('location:admin_login.php?message=Error in logging in');
        }
     }
     else
     {
-        header('location:admin_login.php?error1=Invalid User&vol=&error2');
+        header('location:admin_login.php?message=Error in logging in');
     }
 }
 ?>
