@@ -34,7 +34,7 @@ $query1 = "select * from tasks";
                 $out = json_decode($output, true);
                 $adr = $out["results"][0]["formatted_address"];
                 echo '<div class="card-block">
-                Task #'.$i++. 
+                Task #'.$i++. /*
                 '</div>
                 
                         <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
@@ -43,7 +43,22 @@ $query1 = "select * from tasks";
                     </div>
                 </div>
                 <br>
-                ';
+                '*/
+               ' 
+                 <div class="card" style=";border-bottom-width:5px;border-bottom-color: #00a379"    >
+        <div class="card-header" >
+            Task
+        </div>
+        <div class="card-block">
+            <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
+            <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><button class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$row['lat'].','.$row['lng'].'\',\'_blank\')">Get Directions</button>
+        </div>
+    </div>
+<br>'
+
+
+                ;
             }
         }
     }
