@@ -15,46 +15,45 @@ $volunteer = mysqli_fetch_assoc($result);
     <h1 class="display-4" style="text-align: center">Your Feed</h1>
     <br>
         <?php 
-$url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true/false';
-$output = file_get_contents($url); 
-$out = json_decode($output, true);
-//$data = $result[0];
-echo $out["results"][0]["formatted_address"];
-        // $query1 = "select * from tasks";
-        // $result1 = mysqli_query($query1);
-        // if ($result1) {
-        //     $i=0;
-        //     // output data of each row
-        //     while($row = mysqli_fetch_assoc($result1)) {
-        //         if((distance($volunteer['lat'],$volunteer['lng'],$row['lat'],$row['lng']))<20)
-        //         {
-        //             $i++;
-        //             echo 'Task #'.$i. 
-        //             '</div>
-        //                 <div class="card-block">
-        //                     <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'..'</h4>
-        //                     <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
-        //                     <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Go somewhere</a>
-        //                 </div>
-        //             </div>
-        //             <br>
-        //             ';
-        //         }
-        //     }
-        // }
-     
+// $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true/false';
+// $output = file_get_contents($url); 
+// $out = json_decode($output, true);
+// //$data = $result[0];
+// $adr = $out["results"][0]["formatted_address"];
+$query1 = "select * from tasks";
+    $result1 = mysqli_query($con,$query1);
+    if ($result1) {
+        $i=0;
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result1)) {
+            if((distance($volunteer['lat'],$volunteer['lng'],$row['lat'],$row['lng']))<20)
+            {
+                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$row['lat'].','.$row['lng'].'&sensor=true/false';
+                $output = file_get_contents($url); 
+                $out = json_decode($output, true);
+                $adr = $out["results"][0]["formatted_address"];
+                $i++;
+                $adr1 = urlencode($adr);
+                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$volunteer['lat'].','.$volunteer['lng'].'&sensor=true/false';
+                $output = file_get_contents($url); 
+                $out = json_decode($output, true);
+                $adr2 = $out["results"][0]["formatted_address"];
+                echo '<div class="card-block">
+                Task #'.$i. 
+                '</div>
+                
+                        <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
+                        <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><a href="https://www.google.com/maps/dir/?api=1&origin='.$adr1.'&destination='.$adr2.'&travelmode=bicycling" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Get Directions</a>
+                    </div>
+                </div>
+                <br>
+                ';
+            }
+        }
+    }
+    
         ?>
-                    </div>
-                        <div class="card-block">
-                        <div id="lat" value="40.714224">
-                        <div id="lng" value="-73.961452">
-                            <h1 id="Location"></h1>
-                            <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;"></h4>
-                            <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Go somewhere</a>
-                        </div>
-                    </div>
-                    <br>
 </div>
 
 
@@ -64,5 +63,4 @@ echo $out["results"][0]["formatted_address"];
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>
