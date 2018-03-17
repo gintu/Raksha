@@ -1,4 +1,8 @@
 <!doctype html>
+
+
+
+
 <?php
 $title = "Login";
 include_once("dbconnect.php");
@@ -19,8 +23,18 @@ if(!isset($_GET['error1'])){
     $vol = $_GET['vol'] ;
     $error2 = $_GET['error2']; 
  }
+
 ?>
-<div class="container">
+
+<head>
+
+    <link rel="stylesheet" href="mq.css">
+
+
+</head>
+
+<div class="container abc">
+    <br>
 
     <form id="_form" method="post" action="volloginAction.php">
         <fieldset>

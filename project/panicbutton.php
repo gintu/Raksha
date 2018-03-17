@@ -5,7 +5,7 @@ include_once("header.php");
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<img src="../icon-1968243_1280.png" height="300"  style="border-radius: 50%;margin-left: 40vw;margin-top: 20vh"/>
+<img src="../icon-1968243_1280.png" height="300"  style="border-radius: 50%;margin-left: 42vw;margin-top: 20vh"/>
 
 <h1 class="display-9" style="text-align: center;margin-top: 5%">Click to Record Your Message</h1>
 
