@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Dashboard";
 include_once("dbconnect.php");
 include_once("header.php");

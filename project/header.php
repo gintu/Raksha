@@ -20,14 +20,14 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
 <?php
-if(isset($_SESSION["mobile"]))
+if(isset($_SESSION["mobile"]) or isset($_SESSION["admin"]))
 {
-echo('<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>
-</li>
-<li>
-    <img src="../user.jpg" alt="user" width="50px" height="50px" style="border-radius:50px">
-</li>
-</ul>');
+    echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only"></span></a></li><li>';
+    if(isset($_SESSION["admin"])) 
+    echo '<a href="admin_dash.php';
+    else if(isset($_SESSION["mobile"]))
+    echo '<a href="index2.php';
+    echo '"><img src="../user.jpg" alt="user" width="50px" height="50px" style="border-radius:50px"></a></li></ul>';
 }
 else
 {
