@@ -16,7 +16,7 @@
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">
     <span class="navbar-toggler-icon"></span>
 </button>
-<div class="collapse navbar-collapse" id="navbarColor03">
+<div class="collapse navbar-collapse" id="navbarColor03" style="right: 10px;position: absolute;">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
 <?php
@@ -29,6 +29,9 @@ else
 echo('<a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>');    
 }
 ?>
+    </li>
+    <li>
+        <img src="../user.jpg" alt="user" width="50px" height="50px" style="border-radius:50px">
     </li>
 </ul>
 </div>
