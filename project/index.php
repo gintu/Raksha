@@ -6,7 +6,7 @@ include_once("header.php");
 
 ?>
 
-<div class="jumbotron " style="text-align: center;margin-top: 15vh">
+<div class=" " style="text-align: center;margin-top: 15vh">
     <h1 class="display-1" style="text-align: center">Raksha!</h1>
     <p class="lead" style="text-align: center">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
     <hr class="my-4">
@@ -15,7 +15,7 @@ include_once("header.php");
         <form id="regis_form" method="POST" action="emergency.php">
             <input name="lat" id="lat" value = "" hidden>
             <input name="lng" id="lng" value = "" hidden>
-        <button class="btn btn-outline-danger btn-lg" onclick="submitF()">Emergency</a>
+        <a class="btn btn-outline-danger btn-lg" onclick="submitF()">Emergency</a>
 </form>
     </p>
 </div>

@@ -9,6 +9,8 @@
 
     <title><?php echo "Raksha - " . $title ;?></title>
     <link rel="stylesheet" href="bootsrap.min.css">
+    <link rel="stylesheet" href="mq.css">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
