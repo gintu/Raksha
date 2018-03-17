@@ -21,11 +21,11 @@ $lng = $_POST["lng"];
 $dbupdate="insert into tasks(lat,lng,date) values(".$lat.",".$lng.",CURDATE())";
 
 //echo $dbupdate;
-//$r=mysqli_query($con,$dbupdate);
+$r=mysqli_query($con,$dbupdate);
 $getVol = mysqli_query($con,"select * from volunteer");
 
 while($volAssoc = mysqli_fetch_assoc($getVol)){
-   /* if( distance($lat, $lng, $volAssoc['lat'], $volAssoc['lng']) <20 ){
+    if( distance($lat, $lng, $volAssoc['lat'], $volAssoc['lng']) <20 ){
         
         $dir_link = 'https://www.google.co.in/maps/dir/'.$lat.','.$lng.'/'.$volAssoc['lat'].','.$volAssoc['lng'].'/';
         $new_url = get_tiny_url($dir_link);
@@ -33,19 +33,19 @@ while($volAssoc = mysqli_fetch_assoc($getVol)){
         $message = "Alert TaskForce. Follow the link immediately... ".$new_url;
         
         sendWay2SMS ( '8281860141' , 'M2826E' , $sender , $message); 
-    } */
+        echo "Message Sent<br>".$sender."---".$message."<br>";
+    } 
    // $v = distance($lat, $lng, $volAssoc['lat'], $volAssoc['lng']);
-    //echo $v.'<br>';
+    /*echo $v.'<br>';
     echo $lat.' '.$lng.'<br>';
     echo $volAssoc['lat'].'<br>';
     echo $volAssoc['lng'].'<br>';
     echo $volAssoc['mobile'].'<br>';
     $v = distance($lat, $lng, $volAssoc['lat'], $volAssoc['lng']);
     echo $v.'=V value<br>';
-    echo '<br>-------<br>';
+    echo '<br>-------<br>'; */
 }   
- 
-//header("location:panicbutton.php");
+header("location:panicbutton.php");
 
 //mysqli_close($con);
 ?>

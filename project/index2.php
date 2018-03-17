@@ -28,12 +28,15 @@ $query1 = "select * from tasks";
         $i=0;
         if($volunteer["task"]!=0){
             $taskq = "select * from tasks where id=".$volunteer['task'];
+        //    echo $taskq;
+       //     echo "<br/>";
             $itask = mysqli_query($con,$taskq);
-            if(!is_null($itask))
+            if(mysqli_num_rows($itask) >= 0)
             {
                 $disabled="disabled";
                 $itask = mysqli_fetch_assoc($itask);          
-                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$itask['lat'].','.$itask['lng'].'&sensor=true/false';
+                $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$itask['lat'].",".$itask['lng']."&sensor=true/false";
+           //     echo $url;
                 $output = file_get_contents($url); 
                 $out = json_decode($output, true);
                 $adr = $out["results"][0]["formatted_address"];

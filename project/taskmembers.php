@@ -1,37 +1,31 @@
 <?php
-$title = "admin page";
+$title = "Task force";
 include_once("header.php");
 include_once("dbconnect.php");
 session_start();
 ?>
 
 <div class="container">
-<br/>
     <table class="table">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Location</th>
-            <th scope="col">Task Force Assigned</th>
-            <th scope="col"></th>
+            <th scope="col">Members</th>
         </tr>
         </thead>
         <tbody>
             <?php
-            $qry = "select * from tasks order by id";
+            $qry = "select * from volunteers where task=".$_GET['id']." order by id";
             $task = mysqli_query($con,$qry);
-            while($row=mysqli_fetch_assoc($task))
+            if($task!=false)
             {
-                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$row['lat'].','.$row['lng'].'&sensor=true/false';
-                $output = file_get_contents($url); 
-                $out = json_decode($output, true);
-                $adr = $out["results"][0]["formatted_address"];
-                echo '<tr>
-                        <th scope="row">'.$row['id'].'</th>
-                        <td>'.$adr.'</td>
-                        <td><a class="btn btn-primary btn-lg" href="taskmembers.php/?id='.$row['id'].'" role="button">'.$row['strength'].'</a></td>
-                        <td><a class="" href="remove_task.php/?id='.$row['id'].'" >Remove task</a></td>
+                while($row=mysqli_fetch_assoc($task))
+                {
+                    echo '<tr>
+                    <th scope="row">'.$row['id'].'</th>
+                    <td><a class="btn btn-primary btn-lg" href="taskmembers.php/?id='.$row['name'].'" role="button">'.$row['strength'].'</a></td>
                     </tr>';
+                }
             }
             ?>
             
