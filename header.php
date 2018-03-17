@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">Raksha</a>
+<a class="navbar-brand" href="index.php">Raksha</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">
     <span class="navbar-toggler-icon"></span>
 </button>
@@ -26,7 +26,7 @@ echo('<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current
 }
 else
 {
-echo('<a class="nav-link" href="project/login.html">Login<span class="sr-only">(current)</span></a>');    
+echo('<a class="nav-link" href="login.html">Login<span class="sr-only">(current)</span></a>');    
 }
 ?>
     </li>
