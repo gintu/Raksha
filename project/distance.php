@@ -7,4 +7,5 @@ function distance($lat1, $lon1, $lat2, $lon2) {
   $dist = rad2deg($dist);
   $miles = $dist * 60 * 1.1515;
   return ($miles * 1.609344);
+}
 ?>

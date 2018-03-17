@@ -1,6 +1,5 @@
 <?php
 require_once 'dbconnect.php';
-
 if(isset($_POST['mob'],$_POST['pass'])){
     $m = $_POST['mob'];
     $p = $_POST['pass'];

@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
- if(!isset($_GET['error1'])){
+include_once("header.php");
+if(!isset($_GET['error1'])){
      $error1 = "";
      $vol = "" ;
      $error2 = "";
@@ -11,44 +12,6 @@
     $error2 = $_GET['error2']; 
  }
 ?>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-
-    <title>Raksha-Home</title>
-    <link rel="stylesheet" href="bootsrap.min.css">
-</head>
-<body>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Raksha</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Volunteers</a>
-            </li>
-
-        </ul>
-
-    </div>
-</nav>
-
-<br>
-<br>
-
-
 <div class="container">
 
     <form id="_form" method="post" action="loginAction.php">

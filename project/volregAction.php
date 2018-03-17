@@ -22,4 +22,4 @@ else
   echo "Fail";
 }
 else
- echo "<body style=\"background-color:#c0392b;color:#3498db;\"><center>Missing Inputs<br><a href =\"index.html\">SafePlace</a></center>";
+ echo "<body style=\"background-color:#c0392b;color:#3498db;\"><center>Missing Inputs<br><a href =\"index.php\">SafePlace</a></center>";
