@@ -22,10 +22,36 @@ $volunteer = mysqli_fetch_assoc($result);
 // //$data = $result[0];
 // $adr = $out["results"][0]["formatted_address"];
 $query1 = "select * from tasks";
+    $disabled="";
     $result1 = mysqli_query($con,$query1);
     if ($result1) {
         $i=0;
-        // output data of each row
+        if($volunteer["task"]!=0){
+            $taskq = "select * from tasks where id=".$volunteer['task'];
+            $itask = mysqli_query($con,$taskq);
+            if(!is_null($itask))
+            {
+                $disabled="disabled";
+                $itask = mysqli_fetch_assoc($itask);          
+                $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$itask['lat'].','.$itask['lng'].'&sensor=true/false';
+                $output = file_get_contents($url); 
+                $out = json_decode($output, true);
+                $adr = $out["results"][0]["formatted_address"];
+                echo '<div class="card-block" >
+                <div class="card"  style=";border-bottom-width:5px;border-bottom-color: #00a379" >
+                <div class="card-header" >
+                Task '.$itask['id'].'
+                </div>
+                <div class="card-block" >
+                <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
+                <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
+                <button class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$itask['lat'].','.$itask['lng'].'\',\'_blank\')">Get Directions</button>
+                </div>
+                </div>
+                <br>';
+            }
+        }
+            // output data of each row
         while($row = mysqli_fetch_assoc($result1)) {
             if((distance($volunteer['lat'],$volunteer['lng'],$row['lat'],$row['lng']))<20)
             {
@@ -34,28 +60,17 @@ $query1 = "select * from tasks";
                 $out = json_decode($output, true);
                 $adr = $out["results"][0]["formatted_address"];
                 echo '<div class="card-block">
-                Task #'.$i++. /*
-                '</div>
-                
-                        <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
-                        <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><button class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$row['lat'].','.$row['lng'].'\',\'_blank\')">Get Directions</button>
-                    </div>
-                </div>
-                <br>
-                '*/
-               ' 
-                 <div class="card" style=";border-bottom-width:5px;border-bottom-color: #00a379"    >
+                 <div class="card" >
         <div class="card-header" >
-            Task
+        Task '.$i++.'
         </div>
         <div class="card-block">
             <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
             <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="assign.php/?id='.$row["id"].'" class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px">Accept</a><button class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$row['lat'].','.$row['lng'].'\',\'_blank\')">Get Directions</button>
+                        <button href="assign.php/?id='.$row["id"].'" class="btn btn-primary" '.  $disabled.' style="margin-left: 20px;margin-bottom: 20px">Accept</button><button class="btn btn-primary" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$row['lat'].','.$row['lng'].'\',\'_blank\')">Get Directions</button>
         </div>
     </div>
-<br>'
+<br>';
 
 
                 ;

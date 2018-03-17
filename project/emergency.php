@@ -31,5 +31,6 @@ if (!isset($itasklist)) {
 }
 else
 echo "Task already issued. We're on it.";
+header("location:panicbutton.php");
 mysqli_close($con);
 ?>
