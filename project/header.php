@@ -26,7 +26,7 @@ echo('<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current
 }
 else
 {
-echo('<a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>');    
+echo('<a class="nav-link" href="vollogin.php">Login<span class="sr-only">(current)</span></a>');    
 }
 ?>
     </li>
