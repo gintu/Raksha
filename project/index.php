@@ -1,6 +1,7 @@
 <?php
-include_once("dbconnect.php");
 $title="Home";
+session_start();
+include_once("dbconnect.php");
 include_once("header.php");
 
 ?>

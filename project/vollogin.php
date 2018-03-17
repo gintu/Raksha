@@ -45,6 +45,7 @@ if(!isset($_GET['error1'])){
 
 
             <button  class="btn btn-primary" name="reg_user">Submit</button>
+            &nbsp;&nbsp;<a href="volreg.html">Register</a>
         </fieldset>
     </form>
 
