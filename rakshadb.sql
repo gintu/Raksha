@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 04:41 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Mar 18, 2018 at 06:58 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -50,6 +52,7 @@ CREATE TABLE `responses` (
   `id` int(11) NOT NULL,
   `taskid` int(11) NOT NULL,
   `mobile` bigint(50) NOT NULL,
+  `name` text NOT NULL,
   `response` text NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,9 +61,14 @@ CREATE TABLE `responses` (
 -- Dumping data for table `responses`
 --
 
-INSERT INTO `responses` (`id`, `taskid`, `mobile`, `response`, `date`) VALUES
-(9, 34, 8281860141, 'This is a fire incident. We have it under control', '2018-03-18'),
-(10, 34, 8281860141, 'We need more men here', '2018-03-18');
+INSERT INTO `responses` (`id`, `taskid`, `mobile`, `name`, `response`, `date`) VALUES
+(30, 36, 8281860141, 'Azin Makaranth', 'This is a fire incident. We have it under control', '2018-03-18'),
+(31, 36, 8281860141, 'Azin Makaranth', 'issue', '2018-03-18'),
+(32, 36, 8281860141, 'Azin Makaranth', 'We have it under control', '2018-03-18'),
+(33, 36, 8281860141, 'Azin Makaranth', 'asdads', '2018-03-18'),
+(34, 37, 8281860141, 'Azin Makaranth', 'Its a fire', '2018-03-18'),
+(35, 37, 8281596630, 'Abhishek', 'Yes :)', '2018-03-18'),
+(36, 37, 0, 'Admin', 'Brace for impact', '2018-03-18');
 
 -- --------------------------------------------------------
 
@@ -81,8 +89,15 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `date`, `strength`, `lat`, `lng`) VALUES
-(34, '2018-03-17', 1, 9.962998999999998, 76.4042),
-(36, '2018-03-17', 0, 9.961998999999999, 76.4042);
+(36, '2018-03-17', 0, 9.961599, 76.4042),
+(37, '2018-03-18', 2, 9.951998999999999, 76.2673),
+(38, '2018-03-18', 0, 9.9318345, 76.4042),
+(39, '2018-03-18', 0, 9.961998999999999, 76.4142),
+(40, '2018-03-18', 0, 76.2673255, 76.4042),
+(41, '2018-03-18', 0, 9.861998999999999, 76.4242),
+(42, '2018-03-18', 0, 9.961998999999999, 76.4112),
+(43, '2018-03-18', 0, 9.961998999999999, 76.4042),
+(44, '2018-03-18', 0, 9.961998999999999, 76.4042);
 
 -- --------------------------------------------------------
 
@@ -98,25 +113,19 @@ CREATE TABLE `volunteer` (
   `abt` varchar(200) NOT NULL,
   `location` varchar(100) NOT NULL,
   `lat` double NOT NULL,
-  `lng` double NOT NULL
+  `lng` double NOT NULL,
+  `task` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `volunteer`
 --
 
-INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location`, `lat`, `lng`) VALUES
-(8281596630, 'abhishek.mvr@outlook.com', 'abhishek c', 'abhishekc', 'he is abhishek', 'kottayam', 9.9244504, 76.5314705),
-(8281768654, 'bineeth@gmail.com', 'bineeth', 'bineethbinu', 'im coool', 'alappuzha', 9.9144504, 76.5214705),
-(8281860141, 'azin.makaranth@gmail.com', 'azin makaranth', 'azinmakaranth', 'myself azin', 'kottayam', 9.9344504, 76.5314705),
-(8848827530, 'beemamuhammed@gmail.com', 'beema muhammed', 'beemamuhammed', 'beembro', 'thodupuzha', 9.9364504, 76.5334705),
-(9496617717, 'adhuuss@gmail.com', 'adharshya p', 'adharshyap', 'adhufreaky', 'malappuram', 9.9384504, 76.5114705),
-(9496866691, 'gintutom@gmail.com', 'gintu tom', 'gintutom', 'gintu here', 'kottayam', 9.9324504, 76.5374705),
-(9497888065, 'anandu97@gmail.com', 'anandu s', 'anandus', 'kozhikoodaaran', 'kozhikode', 9.9341504, 76.5315705),
-(9633194711, 'armp97@gmail.com', 'AHMED REHMAN', 'ahmedrehman', 'im me', 'kottayam', 9.9348504, 76.5318705),
-(9744327876, 'ankithtv@hotmail.com', 'ankith t v', 'ankithtv', 'ankithedifferent', 'kannur', 9.9348504, 76.5312705),
-(9874567348, 'sidhin@me.in', 'sidhin s thomas', 'sidhinsthomas', 'haha', 'delhi', 9.9342304, 76.5316705),
-(9874567765, 'hadeeb@outlook.com', 'hadeeb farhan k', 'hadeebfarhan', 'dude', 'malappuram', 9.9349504, 76.5317705);
+INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location`, `lat`, `lng`, `task`) VALUES
+(8281596630, 'abhishek.mvr@outlook.com', 'Abhishek', 'abhishek', 'Not me but you !', 'asas', 9.961998999999999, 76.4042, 37),
+(8281860141, 'azin@g.com', 'Azin Makaranth', '12345', 'hhfajhjafhajh', 'Court Complex, Aroor - Thoppumpady Road, Thoppumpady, Kochi, Kerala, India', 9.961998999999999, 76.4042, 37),
+(9633194711, 'ar@g.com', 'AR', '12345', 'kjkjkjk', 'Court Complex, Aroor - Thoppumpady Road, Thoppumpady, Kochi, Kerala, India', 9.9318345, 76.4042, NULL),
+(9846347501, 'azin.maaakkaaraanttthhhh@gmail.com', 'azzinnMakaranth', '****makaranth', 'am awsomee...', 'Kottayam', 9.961998999999999, 76.4112, NULL);
 
 --
 -- Indexes for dumped tables
@@ -126,6 +135,12 @@ INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `responses`
+--
+ALTER TABLE `responses`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -150,6 +165,20 @@ ALTER TABLE `volunteer`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `responses`
+--
+ALTER TABLE `responses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
