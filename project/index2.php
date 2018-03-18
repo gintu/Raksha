@@ -50,7 +50,7 @@ $query1 = "select * from tasks";
                 <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
                 <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
                 <button class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$itask['lat'].','.$itask['lng'].'\',\'_blank\')">Get Directions</button>
-                <a href="sendresponse.php"><button class="btn btn-info" style="margin-left: 20px;margin-bottom: 20px" >send response to higher authoirty</button></a>
+                <a href="sendresponse.php?id='.$itask['id'].'"><button class="btn btn-info" style="margin-left: 20px;margin-bottom: 20px" >Send Message</button></a>
                 </div>
                 </div>
                 <br>';
@@ -63,7 +63,7 @@ $query1 = "select * from tasks";
                 $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$row['lat'].','.$row['lng'].'&sensor=true/false';
                 $output = file_get_contents($url); 
                 $out = json_decode($output, true);
-                $adr = $out["results"][0]["formatted_address"];
+                $adr = $out["results"][1]["formatted_address"];
                 echo '<div class="card-block">
                  <div class="card" >
         <div class="card-header" >

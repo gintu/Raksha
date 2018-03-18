@@ -35,7 +35,8 @@ if(!isset($_GET['error1'])){
 
 <div class="container abc">
     <br>
-
+<div class="row">
+    <div class="col-sm">
     <form id="_form" method="post" action="volloginAction.php">
         <fieldset>
             <legend>Volunteer Login</legend>
@@ -60,10 +61,15 @@ if(!isset($_GET['error1'])){
 
             <button  class="btn btn-primary" name="reg_user">Submit</button>
             &nbsp;&nbsp;<a href="volreg.html">Register</a>
+            <a href="admin_login.php">Admin Login</a>
         </fieldset>
     </form>
 
+    </div>
 
+
+
+</div>
 </div>
 
 

@@ -4,25 +4,15 @@ $title = "admin page";
 include_once("header.php");
 include_once("dbconnect.php");
 session_start();
-?>
-
-<?php
-$qry = "select * from volunteers where task=".$_GET['id']." order by id";
+$qry = "select * from volunteer where task=".$_GET['id'];
+//echo $qry;
 $task = mysqli_query($con,$qry);
-if($task!=false)
-{
-    while($row=mysqli_fetch_assoc($task))
-    {
-        echo '<tr>
-        <th scope="row">'.$row['id'].'</th>
-        <td><a class="btn btn-primary btn-lg" href="taskmembers.php/?id='.$row['name'].'" role="button">'.$row['strength'].'</a></td>
-        </tr>';
-    }
-}
+$i=0;
 ?>
 
 <div class="container">
 <br/>
+<a href="<?php echo 'messages.php?id='.$_GET['id']; ?>"><button type="button" class="btn btn-primary btn-lg" >Message</button><br/><br/></a>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -34,12 +24,13 @@ if($task!=false)
         </thead>
         <tbody>
             <?php
+            while($row=mysqli_fetch_assoc($task))
+            {
                 echo '<tr>
-                        <th scope="row">'.$row['id'].'</th>
-                        <td>'.$adr.'</td>
-                        <td><a class="btn btn-primary btn-lg" href="taskmembers.php/?id='.$row['id'].'" role="button">'.$row['strength'].'</a></td>
-                        <td><a class="" href="remove_task.php/?id='.$row['id'].'" >Remove task</a></td>
-                    </tr>';
+                <th scope="row">'.++$i.'</th>
+                <th scope="row">'.$row['name'].'</th>
+                <th scope="row">'.$row['mobile'].'</th>';
+            }
             ?>
             
         </tbody>
