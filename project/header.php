@@ -33,7 +33,7 @@ if(isset($_SESSION["mobile"]) or isset($_SESSION["admin"]))
 }
 else
 {
-echo('<a class="nav-link" href="vollogin.php">Login<span class="sr-only">(current)</span></a>');    
+echo('<a class="nav-link" href="vollogin.php">Volunteer\'s Login<span class="sr-only">(current)</span></a>');    
 }
 ?>
 </div>
