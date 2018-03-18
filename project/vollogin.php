@@ -61,36 +61,14 @@ if(!isset($_GET['error1'])){
 
             <button  class="btn btn-primary" name="reg_user">Submit</button>
             &nbsp;&nbsp;<a href="volreg.html">Register</a>
+            <a href="admin_login.php">Admin Login</a>
         </fieldset>
     </form>
 
     </div>
 
 
-    <div class="col-sm">
 
-        <form id="_form" method="post" action="adminLoginAction.php">
-            <fieldset>
-                <legend>Admin Login</legend>
-                <br>
-                <div class="form-group">
-                    <label for="userName">User Name</label>
-                    <input class="form-control" name ="userName" id="userName" aria-describedby="emailHelp" placeholder="Enter User Name" type="text" >
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input  name = "password" class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
-                    <div><span id="err_mob" style="color:red;"><?php if(isset($_GET['message'])) { echo $_GET['message']; }?></span></div>
-                </div>
-
-
-
-                <button  class="btn btn-primary" name="reg_user" type="submit">Submit</button>
-            </fieldset>
-        </form>
-
-
-    </div>
 </div>
 </div>
 
