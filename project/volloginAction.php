@@ -6,10 +6,12 @@ if(isset($_POST['mob'],$_POST['pass'])){
 
     $res = mysqli_query($con,"select * from volunteer where mobile = ".$m." and password = '".$p."'");
     if($res){
+        $user = mysqli_fetch_assoc($res);
        $res_num = mysqli_num_rows($res);
        if($res_num == 1){
             session_start();
             $_SESSION['mobile'] = $m;
+            $_SESSION['user'] = $user['name'];
             header('location:index2.php');
        }
        else{

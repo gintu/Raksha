@@ -50,7 +50,7 @@ $query1 = "select * from tasks";
                 <h4 class="card-title" style="margin-left: 20px;margin-top: 10px;">'.$adr.'</h4>
                 <p class="card-text" style="margin-left: 20px">With supporting text below as a natural lead-in to additional content.</p>
                 <button class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px" onclick="window.open(\'https://www.google.com/maps/dir/'.$volunteer['lat'].','.$volunteer['lng'].'/'.$itask['lat'].','.$itask['lng'].'\',\'_blank\')">Get Directions</button>
-                <a href="sendresponse.php"><button class="btn btn-info" style="margin-left: 20px;margin-bottom: 20px" >send response to higher authoirty</button></a>
+                <a href="sendresponse.php?id='.$itask['id'].'"><button class="btn btn-info" style="margin-left: 20px;margin-bottom: 20px" >Send Message</button></a>
                 </div>
                 </div>
                 <br>';

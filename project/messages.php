@@ -5,10 +5,10 @@ include_once("header.php");
 include_once("dbconnect.php");
 ?>
 <div class="container">
-    <h2> Send Messages</h2>
-    <?php echo '<form method="post" action="sendresponseaction.php?returnurl=sendresponse.php?id='.$_GET['id'].'">' ?> 
+    <h2> Send broadcast to members</h2>
+    <form method="post" action="send_broadcast.php">
         <div class="form-group">
-            <input type="text" class="form-control" id="response" name="response" placeholder="Enter your response">
+            <input type="text" class="form-control" id="response" name="response" placeholder="Send Broadcast">
         </div>
         <button type="submit" id="submitbutton" class="btn btn-primary">Submit</button>
     </form>
