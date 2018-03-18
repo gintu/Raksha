@@ -25,7 +25,7 @@ session_start();
                 $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$row['lat'].','.$row['lng'].'&sensor=true/false';
                 $output = file_get_contents($url); 
                 $out = json_decode($output, true);
-                $adr = $out["results"][0]["formatted_address"];
+                $adr = $out["results"][1]["formatted_address"];
                 echo '<tr>
                         <th scope="row">'.$row['id'].'</th>
                         <td>'.$adr.'</td>

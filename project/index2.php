@@ -61,9 +61,10 @@ $query1 = "select * from tasks";
             if((distance($volunteer['lat'],$volunteer['lng'],$row['lat'],$row['lng']))<20)
             {
                 $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.$row['lat'].','.$row['lng'].'&sensor=true/false';
+              //  echo $url;
                 $output = file_get_contents($url); 
                 $out = json_decode($output, true);
-                $adr = $out["results"][1]["formatted_address"];
+                $adr = $out["results"][0]["formatted_address"];
                 echo '<div class="card-block">
                  <div class="card" >
         <div class="card-header" >
