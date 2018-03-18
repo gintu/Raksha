@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 01:02 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Mar 18, 2018 at 04:41 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -37,9 +36,9 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`username`, `password`) VALUES
-('admin', 'admin@123'),
-('admin', 'admin@123');
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin@123'),
+(2, 'admin', 'admin@123');
 
 -- --------------------------------------------------------
 
@@ -82,7 +81,7 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `date`, `strength`, `lat`, `lng`) VALUES
-(34, '2018-03-17', 1, 9.961998999999999, 76.4042),
+(34, '2018-03-17', 1, 9.962998999999998, 76.4042),
 (36, '2018-03-17', 0, 9.961998999999999, 76.4042);
 
 -- --------------------------------------------------------
@@ -99,28 +98,34 @@ CREATE TABLE `volunteer` (
   `abt` varchar(200) NOT NULL,
   `location` varchar(100) NOT NULL,
   `lat` double NOT NULL,
-  `lng` double NOT NULL,
-  `task` int(11) DEFAULT NULL
+  `lng` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `volunteer`
 --
 
-INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location`, `lat`, `lng`, `task`) VALUES
-(8281596630, 'abhishek.mvr@outlook.com', 'Abhishek', 'abhishek', 'Not me but you !', 'asas', 9.9312328, 86.267304099, 12),
-(8281860141, 'azin@g.com', 'Azin Makaranth', '12345', 'hhfajhjafhajh', 'Court Complex, Aroor - Thoppumpady Road, Thoppumpady, Kochi, Kerala, India', 9.9318345, 76.2673255, 34),
-(9633194711, 'ar@g.com', 'AR', '12345', 'kjkjkjk', 'Court Complex, Aroor - Thoppumpady Road, Thoppumpady, Kochi, Kerala, India', 9.9318345, 76.2673255, NULL),
-(9846347501, 'azin.maaakkaaraanttthhhh@gmail.com', 'azzinnMakaranth', '****makaranth', 'am awsomee...', 'Kottayam', 9.5457888665555, 788.114444477778, NULL);
+INSERT INTO `volunteer` (`mobile`, `email`, `name`, `password`, `abt`, `location`, `lat`, `lng`) VALUES
+(8281596630, 'abhishek.mvr@outlook.com', 'abhishek c', 'abhishekc', 'he is abhishek', 'kottayam', 9.9244504, 76.5314705),
+(8281768654, 'bineeth@gmail.com', 'bineeth', 'bineethbinu', 'im coool', 'alappuzha', 9.9144504, 76.5214705),
+(8281860141, 'azin.makaranth@gmail.com', 'azin makaranth', 'azinmakaranth', 'myself azin', 'kottayam', 9.9344504, 76.5314705),
+(8848827530, 'beemamuhammed@gmail.com', 'beema muhammed', 'beemamuhammed', 'beembro', 'thodupuzha', 9.9364504, 76.5334705),
+(9496617717, 'adhuuss@gmail.com', 'adharshya p', 'adharshyap', 'adhufreaky', 'malappuram', 9.9384504, 76.5114705),
+(9496866691, 'gintutom@gmail.com', 'gintu tom', 'gintutom', 'gintu here', 'kottayam', 9.9324504, 76.5374705),
+(9497888065, 'anandu97@gmail.com', 'anandu s', 'anandus', 'kozhikoodaaran', 'kozhikode', 9.9341504, 76.5315705),
+(9633194711, 'armp97@gmail.com', 'AHMED REHMAN', 'ahmedrehman', 'im me', 'kottayam', 9.9348504, 76.5318705),
+(9744327876, 'ankithtv@hotmail.com', 'ankith t v', 'ankithtv', 'ankithedifferent', 'kannur', 9.9348504, 76.5312705),
+(9874567348, 'sidhin@me.in', 'sidhin s thomas', 'sidhinsthomas', 'haha', 'delhi', 9.9342304, 76.5316705),
+(9874567765, 'hadeeb@outlook.com', 'hadeeb farhan k', 'hadeebfarhan', 'dude', 'malappuram', 9.9349504, 76.5317705);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `responses`
+-- Indexes for table `admins`
 --
-ALTER TABLE `responses`
+ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -141,18 +146,10 @@ ALTER TABLE `volunteer`
 --
 
 --
--- AUTO_INCREMENT for table `responses`
+-- AUTO_INCREMENT for table `admins`
 --
-ALTER TABLE `responses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `tasks`
---
-ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-COMMIT;
-
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
