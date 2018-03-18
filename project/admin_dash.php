@@ -29,8 +29,8 @@ session_start();
                 echo '<tr>
                         <th scope="row">'.$row['id'].'</th>
                         <td>'.$adr.'</td>
-                        <td><a class="btn btn-primary btn-lg" href="taskmembers.php/?id='.$row['id'].'" role="button">'.$row['strength'].'</a></td>
-                        <td><a class="" href="remove_task.php/?id='.$row['id'].'" >Remove task</a></td>
+                        <td><a class="btn btn-primary btn-lg" href="taskmembers.php?id='.$row['id'].'" role="button">'.$row['strength'].'</a></td>
+                        <td><a class="" href="remove_task.php?id='.$row['id'].'" >Remove task</a></td>
                     </tr>';
             }
             ?>

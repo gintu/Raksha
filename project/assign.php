@@ -14,5 +14,5 @@ if(isset($_GET['id']))
     $result = mysqli_query($con,$query1);
     echo $query2;
 }
-    //header("location: index2.php",true);
+    header("location: index2.php",true);
 ?>
