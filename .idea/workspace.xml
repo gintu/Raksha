@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ec24ac5-3049-432a-a35b-2b47283ba3af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/vollogin.php" afterPath="$PROJECT_DIR$/project/vollogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -364,12 +364,12 @@
       <workItem from="1521264230254" duration="9749000" />
       <workItem from="1521278996698" duration="27000" />
       <workItem from="1521279268527" duration="13476000" />
-      <workItem from="1521336578999" duration="1856000" />
+      <workItem from="1521336578999" duration="3129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41831000" />
+    <option name="totallyTimeSpent" value="43104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
