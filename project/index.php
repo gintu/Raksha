@@ -8,7 +8,7 @@ include_once("header.php");
 
 <div class=" " style="text-align: center;margin-top: 15vh">
     <h1 class="display-1" style="text-align: center">Raksha!</h1>
-    <p class="lead" style="text-align: center">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <p class="lead" style="text-align: center">Always ready to help.</p>
     <hr class="my-4">
     <p>In case of emergency press this button.</p>
     <p class="lead">
